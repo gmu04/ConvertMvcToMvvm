@@ -28,7 +28,7 @@ class ViewModel_delegate{
     
     func businessLogic(){
         buttonTitle += " ++"
-        print("such as button title - for example, \(buttonTitle)")
+        print("Business logic outcome: \(buttonTitle)")
     }
     
     func businessLogic2(_ completion:/*@escaping*/ (String)->Void){

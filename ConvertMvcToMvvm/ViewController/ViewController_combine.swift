@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 final class ViewController_combine: UIViewController{
     
     private var vm:ViewModel_combine!
-
+    
     required init?(coder: NSCoder) {
         fatalError("Not implemented")
     }
@@ -32,7 +33,11 @@ final class ViewController_combine: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //set initial title
         titleChanged()
+        
+        bindValues()
+        
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         view.addSubview(button)
 
@@ -43,18 +48,25 @@ final class ViewController_combine: UIViewController{
         ])
     }
     
+    private func bindValues(){
+        //listen to state changes
+        vm.$buttonTitle
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] _ in
+                self?.titleChanged()
+            })
+            .store(in: &vm.cancellables)
+    }
+
+    
     @objc func buttonTapped(){
         // let's assume there's some business logic happening here
         //there's an action here that relies on the state of your application
         vm.businessLogic()
     }
     
-    @objc private func viewModelDataChanged(){
-        self.titleChanged()
-    }
-    
     private func titleChanged() {
-        //button.configuration?.title = vm.buttonTitle
+        button.configuration?.title = vm.buttonTitle
     }
     
     lazy var button:UIButton = {

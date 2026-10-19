@@ -49,7 +49,7 @@ final class ViewController_mvc: UIViewController {
     
     private func businessLogic(){
         self.buttonTitle += " ++"
-        print("such as button title - for example, \(self.buttonTitle!)")
+        print("Business logic outcome: \(self.buttonTitle!)")
         button.setTitle(buttonTitle, for: .normal)
     }
     

@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
     
     private lazy var mvcButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("MVC", for: .normal)
+        button.setTitle("MVC (fat-client)", for: .normal)
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
@@ -92,7 +92,7 @@ class HomeViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        title = "Design Patterns"
+        title = "MVC ⇢ MVVM"
         
         // Add buttons to stack view
         stackView.addArrangedSubview(mvcButton)
@@ -129,25 +129,25 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func delegateButtonTapped() {
-        let vm = ViewModel_delegate(buttonTitle: "MVVM - Delegate")
+        let vm = ViewModel_delegate(buttonTitle: "MVVM + Delegate")
         let viewController = ViewController_delegate(vm)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc private func notificationCenterButtonTapped() {
-        let vm = ViewModel_notificationCenter(buttonTitle: "MVVM - Notification Center")
+        let vm = ViewModel_notificationCenter(buttonTitle: "MVVM + Notification Center")
         let viewController = ViewController_notificationCenter(vm)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc private func kvoButtonTapped() {
-        let vm = ViewModel_kvo(buttonTitle: "MVVM - KVO")
+        let vm = ViewModel_kvo(buttonTitle: "MVVM + KVO")
         let viewController = ViewController_kvo(vm)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc private func combineButtonTapped() {
-        let vm = ViewModel_combine(buttonTitle: "MVVM - Combine")
+        let vm = ViewModel_combine(buttonTitle: "MVVM + Combine")
         let viewController = ViewController_combine(vm)
         navigationController?.pushViewController(viewController, animated: true)
     }

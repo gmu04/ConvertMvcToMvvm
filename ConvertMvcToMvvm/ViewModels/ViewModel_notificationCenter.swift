@@ -17,7 +17,7 @@ final class ViewModel_notificationCenter{
     
     func businessLogic(){
         buttonTitle += " ++"
-        print("such as button title - for example, \(buttonTitle)")
+        print("Business logic outcome: \(buttonTitle)")
         NotificationCenter.default.post(name: .viewModel_2DataChangedNotification, object: nil)
     }
     

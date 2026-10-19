@@ -11,15 +11,15 @@ import Combine
 final class ViewModel_combine{
     
     @Published private(set) var buttonTitle:String
+    var cancellables = Set<AnyCancellable>()
     
     init(buttonTitle: String = "") {
         self.buttonTitle = buttonTitle
     }
     
     func businessLogic(){
-        buttonTitle += " ++"
-        print("such as button title - for example, \(buttonTitle)")
-        //self.data = ViewState.buttonTitleChanged
+        self.buttonTitle += " ++"
+        print("Business logic outcome: \(buttonTitle)")
     }
     
 }

@@ -24,7 +24,7 @@ public final class ViewModel_kvo: NSObject{
     
     func businessLogic(){
         buttonTitle += " ++"
-        print("such as button title - for example, \(buttonTitle)")
+        print("Business logic outcome: \(buttonTitle)")
         self.data = ViewState.buttonTitleChanged
     }
     
